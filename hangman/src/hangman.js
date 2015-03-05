@@ -26,7 +26,7 @@ function submitGuess(letter){
 	*/
 }
 
-/* For a command line Node program, it would run something like this to start
+/* For a command line Node program, it would run something like this to start */
 function main(){
 	/*
 	//one-time setup:
