@@ -1,20 +1,36 @@
-# [Kata Seeds](http://kata-seeds.github.io): JavaScript + [Karma](http://karma-runner.github.io/) (with [Jasmine](http://jasmine.github.io/))
-[![Build Status](https://travis-ci.org/kata-seeds/js-karma-seed.svg?branch=master)](https://travis-ci.org/kata-seeds/js-karma-seed)
+## Intro
+This is an exercise to build and test a Hangman game. 
+
+It's built on the JS-Karma Seed project, which gives you a skeleton project with Karma and Jasmine ready to go.
 
 ## Getting Started
 
 Clone this repo with `git`:
-
-    git clone https://github.com/kata-seeds/js-karma-seed.git
-    cd js-karma-seed
+    git clone https://github.com/cantinac/cantina-javascript-study-group.git
+    cd hangman
 
 Install dependencies and run your tests with `make`:
 
     make
 
-You should eventually see 1 test ran and 0 failures. If `make` doesn't work for you, npm probably has some comments that can help you out, otherwise please open an issue.
 
-To run your tests during a kata, use `npm test` to run once, or use `npm run karma` to
+To run your tests during development, use `npm test` to run once, or use `npm run karma` to
 use a watcher to check for file changes.
 
-Now you can start your kata! May we suggest the [Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life)?
+
+## Hangman Rules
+The program picks a random word and prints out an underscore for each missing letter.
+
+The player guesses a letter that might be in the word.
+
+If the letter is in the word, the display shows the word with guessed letters revealed.
+
+The player gets up to six wrong answers.  If they guess the letter before six wrong answers, they win!
+
+
+
+## Exercise
+Write the functions you'd use in a Hangman game in the src directory.  If you'd like a skeleton to get started, look at hangman.js .
+
+Write tests in test/hangman-spec.js
+
