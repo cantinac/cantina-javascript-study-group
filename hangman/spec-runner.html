@@ -15,43 +15,9 @@
 
   <!-- include spec files here... -->
   <script type="text/javascript" src="test/hangman_spec.js"></script>
-
-  <script type="text/javascript">
-    (function() {
-      var jasmineEnv = jasmine.getEnv();
-      window.jasmineEnv = jasmineEnv;
-      jasmineEnv.updateInterval = 1000;
-
-      var htmlReporter = new jasmine.HtmlReporter({
-        createElement: function () {
-          return document.createElement.apply(document, arguments);
-        }
-      });
-
-      jasmineEnv.addReporter(htmlReporter);
-
-      jasmineEnv.specFilter = function(spec) {
-        return htmlReporter.specFilter(spec);
-      };
-
-      var currentWindowOnload = window.onload;
-
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
-        }
-        execJasmine();
-      };
-
-      function execJasmine() {
-        jasmineEnv.execute();
-      }
-
-    })();
-  </script>
-
 </head>
 
 <body>
+  <div class="symbol-summary"></div>
 </body>
 </html>
