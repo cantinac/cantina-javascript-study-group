@@ -1,5 +1,11 @@
 ##An Intro to Javascript Testing with Karma, Jasmine, and Hangman
 
+### GOALS
+* Learn what Karma and Jasmine are
+* Know what you're looking at when you see a project with Karma:  directory structure, where to find tests
+* Know how to run the tests
+* Know basic Jasmine phrases: describe, it, expect, beforeEach
+
 ### FIRST THINGS FIRST
 Open a command line to this folder.  Run the command 
 `make` 
@@ -87,14 +93,17 @@ This project shipped with a test file, which you can run. From the command line,
 
 
 
-### "ONE LARGE BEER, PLEASE": A TEST SPEC PHRASEBOOK
+### "ONE BEER, PLEASE": A TEST SPEC PHRASEBOOK
 
-Open the test\hangman-spec.js file to see a test file.
+Open the test\basic-spec.js file to see a test file.
 
 You'll see several Jasmine phrases:   *describe*, *it*, *beforeEach*, and *expect*.  These are Jasmine functions, not standard javascript.  Each test plugin uses its own dialect, but - like ordering a beer - all the test languages let you express roughly the same things.
 
+#### Jasmine Phrases
+[This cheat sheet has the most common Jasmine commands.](http://www.cheatography.com/citguy/cheat-sheets/jasmine-js-testing/)
 
-####Test structure: describe() 
+
+####Test skeleton: describe() 
 describe() organizes a spec into related groups.  It's rewuired to have one describe() function that encloses everything.  A describe() block contains other Jasmine phrases.  You can nest desribe() blocks if you wish.
 
 The format for a describe() block is:
@@ -116,20 +125,72 @@ it('a short description of this test case', function(){
 	//nuts and bolts of the test go here
 });
 ```
+
 #### beforeEach()
+beforeEach does setup before each it() in the describe block.  Use it to do initialization, like creating an object or setting variables. 
+
+```
+beforeEach( function(){
+    //set everything up in a clean, known state for tests
+});
+```
+
 #### afterEach()
+afterEach cleans up after each it().  It's used for things like closing files or database connections.  
+
+```
+afterEach( function(){
+
+});
+```
 
 
+### MAKE ME A MATCH: expect()
+
+it() functions hold the actual test code. 
+
+Here are some test statements: 
+
+```
+expect(true).toBe(true);
+expect(1).toBeLessThan(2);
+expect(myVariable).toBeDefined();
+```
 
 
-	* which tester
-* structure of a test file
-	* describe - one around, then optional to organize
-	* beforeEach
-	* afterEach
-	* it 	
-* running a test
-* 
+Expect() is the workhorse of tests.  It's how you ask "does this thing do what it ought to".
+
+The thing in the first parenthesis is a variable or a statement, the thing you're looking at.
+
+The next part is called a matcher.  Matchers let you ask questions.  Jasmine comes with several - see the cheat sheet. 
+
+All test libraries offer basic matchers.  Some test libraries offer fancier matchers for convenience.  For example, you can say 
+```
+var myValue = undefined;
+
+expect( myValue ).toEqual( undefined );
+expect( myValue ).toBeUndefined();
+
+```
+
+
+Fancy matchers are one reason people have favorite test libraries.
+
+### THE TO EQUAL vs TO BE GOTCHA
+toEqual() checks that two values are equal.
+
+toBe() checks that two values are the same object.
+//TODO: say more about it
+
+### WRITE SOME TESTS
+In test/basic-spec.js:
+* make an it() test that checks something is true or false
+* make a test that checks defined and not defined
+* ... 
+//TODO: try out those matchers
+
+
+//TODO:
 * process
 	* assemble - setup
 	* act - do the thing you're testing
