@@ -12,7 +12,8 @@ var lettersGuessed = {};
 setTargetWord();
 
 function submitGuess(letter){
-	/*
+	
+	
 	checkAnswer();
 	
 	if( youWon()){
@@ -23,7 +24,7 @@ function submitGuess(letter){
 		//show some feedback
 	}
 	printPuzzle();
-	*/
+	
 }
 
 /* For a command line Node program, it would run something like this to start */
@@ -76,7 +77,7 @@ function intro(){
 * or the letter if it has been guessed.
 */
 function printPuzzle(){
-
+	console.log('puzzle');
 }
 
 /**
@@ -86,6 +87,7 @@ function printPuzzle(){
 function setTargetWord(newWord){
 	//To start, hardcode one word.
 	//For a fancier version, pick from a list of words.
+	word = newWord;
 }
 
 
@@ -110,4 +112,6 @@ function youWon(){
 function youLost(){
 
 }
-
+function done() {
+	return false;
+}
