@@ -14,7 +14,7 @@ setTargetWord();
 function submitGuess(letter){
 	
 	
-	checkAnswer();
+	var result = checkAnswer(letter);
 	
 	if( youWon()){
 		//Yay!
@@ -23,8 +23,8 @@ function submitGuess(letter){
 		//Sad trombone! 
 		//show some feedback
 	}
-	printPuzzle();
-	
+	//printPuzzle();
+	return result; 
 }
 
 /* For a command line Node program, it would run something like this to start */
@@ -60,6 +60,7 @@ function main(){
 * If not: increment the mistake counter
 */
 function checkAnswer(letter){
+		return word.indexOf(letter) != -1;
 }
 
 
@@ -78,6 +79,7 @@ function intro(){
 */
 function printPuzzle(){
 	console.log('puzzle');
+	return word;
 }
 
 /**
@@ -103,6 +105,7 @@ function wordContains(letter){
 * @brief Check whether all letters have been guessed.
 */
 function youWon(){
+	return false;
 
 }
 

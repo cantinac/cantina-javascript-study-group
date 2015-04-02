@@ -23,16 +23,12 @@
 			<header>
 				<h1>HTML</h1>
 			</header>
-			<nav>
-				<p>
-					<a href="/">Home</a>
-				</p>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
-			</nav>
-
-			<div>
+			<form>
+				<input type="text" name="letter" class="letter" maxlength="1" />
+				<input type="submit" name="submit" value="Submit letter" />
+			</form>
+			
+			<div class="message">
 
 			</div>
 
@@ -45,10 +41,25 @@
 		<script src="hangman.js"></script>
 		<script>
 		(function() {
+			document.querySelector('form').addEventListener('submit', handleSubmit);
 			setTargetWord('heya');	
-			while(true) {	
-				var letter = prompt('Guess a letter');
-				submitGuess(letter);
+			
+			function handleSubmit(e){
+				var letter = document.querySelector('.letter').value;
+				e.preventDefault();
+				//var letter = prompt('Guess a letter');
+				//you chose...
+				var success = submitGuess(letter);
+				var msg = "You chose " + letter + ". ";
+				//and it was right/wrong
+				if( success === true ){
+					msg += "Correct-a-mundo!"
+				} else {
+					msg += " Wrong-o! *Sad trombone*";
+				}
+				document.querySelector('.message').innerHTML = msg;
+
+				//document.write(printPuzzle());
 			}	
 		})();
 			
