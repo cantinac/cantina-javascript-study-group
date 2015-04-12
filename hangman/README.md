@@ -34,3 +34,13 @@ Write the functions you'd use in a Hangman game in the src directory.  If you'd 
 
 Write tests in test/hangman-spec.js
 
+---
+
+## Running tests in the browser
+
+If you prefer, you can run these tests in the browser. The file `spec-runner.html` will load the Jasmine testing framework, then `src/hangman.js` and `src/hangman-spec.js`, execute our tests and report on the results. Simply open this file in the browser (you can drag and the file so that it uses the `file://` protocol) and it will run.
+
+Tips:
+
+* You can run a single test at a time by clicking on its name.
+* Be sure to leave your console open, since there are often helpful messages that are emitted.
